@@ -10,4 +10,4 @@ apiRouter.get("/home", greetController)
 apiRouter.get("/cars", carsController)
 server.use("/api", apiRouter)
 
-server.listen(PORT, () => {console.log(`server successfully connected on port ${PORT}`)})
+server.listen(PORT, () => {console.log(`Server is running on port ${PORT}`)})
