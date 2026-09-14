@@ -1,13 +1,15 @@
 import express from "express"
 import { apiRouter } from "./route-handlers/route-handlers.js"
-import { carsController, greetController } from "./controllers/controllers.js"
+
 
 const PORT = 8000
 const server = express()
 
 
-apiRouter.get("/home", greetController)
-apiRouter.get("/cars", carsController)
+
 server.use("/api", apiRouter)
+server.use((req, res) => {
+  res.status(404).json({ message: "Endpoint not found. Please check the API documentation." })
+})
 
 server.listen(PORT, () => {console.log(`Server is running on port ${PORT}`)})
